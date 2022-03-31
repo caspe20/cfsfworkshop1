@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.testapplication;
+package dk.sdu.mmmi.testapplication.Sensor;
 
 public class JSONFormat {
     //JSON format
@@ -49,5 +49,14 @@ public class JSONFormat {
     public void setUnit(String unit) {
         this.unit = unit;
     }
-}
 
+    @Override
+    public String toString() {
+        return "JSONFormat{" +
+                "measurementTimeMs=" + measurementTimeMs +
+                ", sensorId='" + sensorId + '\'' +
+                ", value=" + value +
+                ", unit='" + unit + '\'' +
+                '}';
+    }
+}

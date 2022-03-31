@@ -10,10 +10,7 @@ package dk.sdu.mmmi.testapplication;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dk.sdu.mmmi.st4.scfs.sensors.CO2Sensor;
-import dk.sdu.mmmi.st4.scfs.sensors.TemperatureSensor;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import dk.sdu.mmmi.testapplication.Sensor.JSONFormat;
 
 /**
  * @author Anders
