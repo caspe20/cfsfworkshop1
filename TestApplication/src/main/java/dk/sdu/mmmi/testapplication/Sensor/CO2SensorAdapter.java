@@ -1,15 +1,14 @@
 package dk.sdu.mmmi.testapplication.Sensor;
 
 import dk.sdu.mmmi.st4.scfs.sensors.CO2Sensor;
+import org.json.JSONObject;
 
 import java.util.Date;
 
 public class CO2SensorAdapter implements ISensor {
     //JSON format
     private CO2Sensor sensor;
-    private long measurementTimeMs;
     private final String sensorId;
-    private double value;
     private final String unit;
 
     public CO2SensorAdapter(String sensorId, String unit) {
@@ -26,17 +25,16 @@ public class CO2SensorAdapter implements ISensor {
 
     @Override
     public Double getValue() {
-        double val = sensor.getValue();
-        return val;
+        return (double) sensor.getValue();
     }
 
     @Override
     public String toString() {
-        return "JSONFormat{" +
-                "measurementTimeMs=" + System.currentTimeMillis() +
-                ", sensorId='" + getName() + '\'' +
-                ", value=" + getValue() +
-                ", unit='" + unit + '\'' +
-                '}';
+        JSONObject obj = new JSONObject()
+                .put("measurementTimeMs", System.currentTimeMillis())
+                .put("sensorId",getName())
+                .put("value",getValue())
+                .put("unit",unit);
+        return obj.toString();
     }
 }

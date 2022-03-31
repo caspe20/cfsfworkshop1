@@ -6,6 +6,7 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.topic.ITopic;
 import com.hazelcast.topic.Message;
 import com.hazelcast.topic.MessageListener;
+import org.json.JSONObject;
 
 public class TopicSubscriber {
 
@@ -26,7 +27,10 @@ public class TopicSubscriber {
 
     private static class MessageListenerImpl implements MessageListener<String> {
         public void onMessage(Message<String> m) {
-            System.out.println("Received: " + m.getMessageObject());
+            JSONObject obj = new JSONObject(m.getMessageObject());
+            if(obj.get("sensorId").equals("CO2_09")){
+                System.out.println(obj);
+            }
         }
     }
 
