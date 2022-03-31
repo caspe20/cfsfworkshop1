@@ -14,10 +14,8 @@ public class TopicSubscriber {
     ITopic<String> topic;
 
     public static void main(String[] args) {
-        HazelcastInstance hz = getHazelcastInstance();
-        ITopic<String> topic = hz.getTopic("CO2Sensor");
-        topic.addMessageListener(new MessageListenerImpl());
-        System.out.println("Subscribed");
+        TopicSubscriber test = new TopicSubscriber();
+        test.subscribe("sensor");
     }
 
     public void subscribe(String topic) {
@@ -39,5 +37,6 @@ public class TopicSubscriber {
         clientConfig.getNetworkConfig().addAddress(hazelcastAddress);
         return HazelcastClient.newHazelcastClient(clientConfig);
     }
+
 
 }

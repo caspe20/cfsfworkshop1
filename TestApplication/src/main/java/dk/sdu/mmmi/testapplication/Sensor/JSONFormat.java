@@ -1,11 +1,14 @@
 package dk.sdu.mmmi.testapplication.Sensor;
 
+import dk.sdu.mmmi.st4.scfs.sensors.CO2Sensor;
+
 public class JSONFormat {
     //JSON format
     private long measurementTimeMs;
     private String sensorId;
     private double value;
     private String unit;
+
 
     public JSONFormat(long measurementTimeMs, String sensorId, double value, String unit) {
         this.measurementTimeMs = measurementTimeMs;
