@@ -16,9 +16,9 @@ public class Publisher {
     public static void main(String[] args) {
         HazelcastInstance hz = getHazelcastInstance();
         ITopic<String> topic = hz.getTopic("CO2Sensor");
-        topic.publish("Test");
+        topic.publish("Hej Mette");
 
-        //hz.shutdown();
+        hz.shutdown();
     }
 
     private static HazelcastInstance getHazelcastInstance(){
