@@ -10,6 +10,9 @@ package dk.sdu.mmmi.testapplication.Sensor;
  * @author Anders
  */
 public interface ISensor {
+
     public String getName();
     public Double getValue();
+
+    public String toString();
 }

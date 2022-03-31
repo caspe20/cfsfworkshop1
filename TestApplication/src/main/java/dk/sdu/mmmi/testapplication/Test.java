@@ -9,8 +9,7 @@ package dk.sdu.mmmi.testapplication;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dk.sdu.mmmi.st4.scfs.sensors.CO2Sensor;
-import dk.sdu.mmmi.testapplication.Sensor.JSONFormat;
+import dk.sdu.mmmi.testapplication.Sensor.CO2SensorAdapter;
 
 /**
  * @author Anders
@@ -36,14 +35,14 @@ public class Test {
         //
         //s.stop();
         //t.stop();
-        CO2Sensor co2 = new CO2Sensor("CO2_432");
+        dk.sdu.mmmi.st4.scfs.sensors.CO2Sensor co2 = new dk.sdu.mmmi.st4.scfs.sensors.CO2Sensor("CO2_432");
         co2.start();
         ObjectMapper mapper = new ObjectMapper();
         long timeMs = System.currentTimeMillis();
         String sensorId = co2.getId();
         double value = co2.getValue();
         String unit = "PPM";
-        JSONFormat JSONMessage = new JSONFormat(timeMs,sensorId,value,unit);
+        CO2SensorAdapter JSONMessage = new CO2SensorAdapter(timeMs,sensorId,value,unit);
         String json = mapper.writeValueAsString(JSONMessage);
         System.out.println(json);
         co2.stop();
