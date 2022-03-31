@@ -8,7 +8,7 @@ import com.hazelcast.topic.ITopic;
 import com.hazelcast.topic.Message;
 import com.hazelcast.topic.MessageListener;
 
-public class Main {
+public class Publish {
 
     private static final String HAZELCAST_HOST = "10.112.254.14";
     private static final int HAZELCAST_PORT = 5701;
@@ -19,16 +19,10 @@ public class Main {
 
     public static void main(String[] args) {
         HazelcastInstance hz = getHazelcastInstance();
-        MultiMap<String,String> map = hz.getMultiMap(MAP_NAME);
-        MessageListener listener = new MessageListener() {
-            @Override
-            public void onMessage(Message message) {
-                System.out.println("Message recieved");
-            }
-        };
-        ITopic<String> topic = hz.getTopic("CO2Sensor");
 
-        topic.addMessageListener(listener);
+        ITopic<String> topic = hz.getTopic("CO2Sensor");
+        topic.publish("Test");
+
 
         /*
         Service service1 = new Service(SERVICE, IP, 8001);
@@ -51,7 +45,7 @@ public class Main {
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.getNetworkConfig().addAddress(hazelcastAddress);
         return HazelcastClient.newHazelcastClient(clientConfig);
-    } 
+    }
 
     private static void registerService(MultiMap<String,String> map, Service service){
         String endpoint = String.format("%s:%d", service.ip, service.port);
