@@ -14,8 +14,7 @@ public class TopicSubscriber {
     ITopic<String> topic;
 
     public static void main(String[] args) {
-        TopicSubscriber test = new TopicSubscriber();
-        test.subscribe("sensor");
+
     }
 
     public void subscribe(String topic) {

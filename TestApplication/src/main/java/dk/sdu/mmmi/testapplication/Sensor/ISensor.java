@@ -13,6 +13,5 @@ public interface ISensor {
 
     public String getName();
     public Double getValue();
-
     public String toString();
 }
