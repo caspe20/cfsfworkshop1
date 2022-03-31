@@ -14,8 +14,8 @@ public class Subscriber {
     private static final int HAZELCAST_PORT = 5701;
 
     public static void main(String[] args) {
+        ITopic<String> topic = hz.getTopic("CO2Sensor");
         HazelcastInstance hz = getHazelcastInstance();
-        ITopic<String> topic = hz.getTopic("topic");
         topic.addMessageListener(new MessageListenerImpl());
         System.out.println("Subscribed");
     }
