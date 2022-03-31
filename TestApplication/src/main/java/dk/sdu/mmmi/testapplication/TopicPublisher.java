@@ -1,19 +1,20 @@
+package dk.sdu.mmmi.testapplication;
+
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.topic.ITopic;
 
-public class Publisher {
+public class TopicPublisher {
 
     private static final String HAZELCAST_HOST = "10.112.254.14";
     private static final int HAZELCAST_PORT = 5701;
+    ITopic<String> topic;
 
-
-    public static void main(String[] args) {
+    public void publish(String topic, String message) {
         HazelcastInstance hz = getHazelcastInstance();
-        ITopic<String> topic = hz.getTopic("CO2Sensor");
-        topic.publish("Hej Mette");
-
+        this.topic = hz.getTopic(topic);
+        this.topic.publish(message);
         hz.shutdown();
     }
 
