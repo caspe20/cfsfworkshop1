@@ -1,14 +1,13 @@
 import java.util.Collection;
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
-import com.hazelcast.core.DistributedObject;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.multimap.MultiMap;
 import com.hazelcast.topic.ITopic;
 import com.hazelcast.topic.Message;
 import com.hazelcast.topic.MessageListener;
 
-public class Main {
+public class Publisher {
 
     private static final String HAZELCAST_HOST = "10.112.254.14";
     private static final int HAZELCAST_PORT = 5701;
@@ -19,7 +18,6 @@ public class Main {
 
     public static void main(String[] args) {
         HazelcastInstance hz = getHazelcastInstance();
-        MultiMap<String,String> map = hz.getMultiMap(MAP_NAME);
         MessageListener listener = new MessageListener() {
             @Override
             public void onMessage(Message message) {

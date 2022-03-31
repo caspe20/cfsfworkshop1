@@ -44,7 +44,7 @@ This repo contains an example for how to implement a service registry using Haze
 
     **Within the terminal:**
     ```sh
-    mvn clean compile exec:java -Dexec.mainClass="Main"
+    mvn clean compile exec:java -Dexec.mainClass="Publisher"
     ```
 
 1. Watch the output from the example:
