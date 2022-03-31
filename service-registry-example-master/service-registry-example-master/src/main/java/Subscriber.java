@@ -10,7 +10,7 @@ public class Subscriber {
 
     public static void main(String[] args) {
         HazelcastInstance hz = Hazelcast.newHazelcastInstance();
-        ITopic<String> topic = hz.getTopic("topic");
+        ITopic<String> topic = hz.getTopic("CO2Sensor");
         topic.addMessageListener(new MessageListenerImpl());
         System.out.println("Subscribed");
     }
