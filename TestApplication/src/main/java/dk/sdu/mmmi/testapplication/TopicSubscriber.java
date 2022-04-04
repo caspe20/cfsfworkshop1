@@ -14,10 +14,6 @@ public class TopicSubscriber {
     private static final int HAZELCAST_PORT = 5701;
     ITopic<String> topic;
 
-    public static void main(String[] args) {
-
-    }
-
     public void subscribe(String topic) {
         HazelcastInstance hz = getHazelcastInstance();
         this.topic = hz.getTopic(topic);
