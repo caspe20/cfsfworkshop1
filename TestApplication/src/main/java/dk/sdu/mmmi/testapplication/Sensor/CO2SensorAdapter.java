@@ -10,11 +10,16 @@ public class CO2SensorAdapter implements ISensor {
     private CO2Sensor sensor;
     private final String sensorId;
     private final String unit;
+    private String room;
 
-    public CO2SensorAdapter(String sensorId, String unit) {
+    public static int SID = 0;
+
+    public CO2SensorAdapter(String room, String unit) {
         sensor = new CO2Sensor("test");
         sensor.start();
-        this.sensorId = sensorId;
+        CO2SensorAdapter.SID++;
+        this.sensorId = room + "Sensor" + CO2SensorAdapter.SID;
+        this.room = room;
         this.unit = unit;
     }
 
@@ -26,6 +31,10 @@ public class CO2SensorAdapter implements ISensor {
     @Override
     public Double getValue() {
         return (double) sensor.getValue();
+    }
+
+    public String getRoom() {
+        return room;
     }
 
     @Override

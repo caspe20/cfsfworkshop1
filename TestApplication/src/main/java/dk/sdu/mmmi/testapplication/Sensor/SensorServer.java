@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class SensorServer {
     public static void main(String[] args) {
         ArrayList<ISensor> sensors = new ArrayList<>();
-        sensors.add(new CO2SensorAdapter("CO2_09","PPM"));
+        sensors.add(new CO2SensorAdapter("Room_09","PPM"));
 
         TopicPublisher publisher = new TopicPublisher();
 

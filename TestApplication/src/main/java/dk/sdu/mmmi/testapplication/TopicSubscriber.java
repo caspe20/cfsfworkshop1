@@ -21,14 +21,14 @@ public class TopicSubscriber {
         System.out.println("Subscribed to " + topic);
     };
 
-    private static class MessageListenerImpl implements MessageListener<String> {
+    protected static class MessageListenerImpl implements MessageListener<String> {
         public void onMessage(Message<String> m) {
             JSONObject obj = new JSONObject(m.getMessageObject());
             System.out.println(obj);
         }
     }
 
-    private static HazelcastInstance getHazelcastInstance(){
+    protected static HazelcastInstance getHazelcastInstance(){
         String hazelcastAddress = String.format("%s:%d", HAZELCAST_HOST, HAZELCAST_PORT);
         ClientConfig clientConfig = new ClientConfig();
         clientConfig.getNetworkConfig().addAddress(hazelcastAddress);
