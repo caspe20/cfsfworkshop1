@@ -8,5 +8,4 @@ public class GUI {
         TopicSubscriber topicSubscriber = new TopicSubscriber();
         topicSubscriber.subscribe("sensor");
     }
-
 }

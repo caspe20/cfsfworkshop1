@@ -24,9 +24,7 @@ public class TopicSubscriber {
     private static class MessageListenerImpl implements MessageListener<String> {
         public void onMessage(Message<String> m) {
             JSONObject obj = new JSONObject(m.getMessageObject());
-            if(obj.get("sensorId").equals("CO2_09")){
-                System.out.println(obj);
-            }
+            System.out.println(obj);
         }
     }
 
